@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Jasmine Spec Runner v2.5.2</title>
+
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.5.2/jasmine_favicon.png">
+  <link rel="stylesheet" href="lib/jasmine-2.5.2/jasmine.css">
+
+  <script src="lib/jasmine-2.5.2/jasmine.js"></script>
+  <script src="lib/jasmine-2.5.2/jasmine-html.js"></script>
+  <script src="lib/jasmine-2.5.2/boot.js"></script>
+
+  <!-- テスト対象のコード -->
+  <script src="lib/jasmine-2.5.2/ConvertToColumnName.js"></script>
+
+  <!-- テストコード -->
+<script>
+describe("テスト: ConvertToColumnName", function () {
+         
+	it("1はAである", function () {
+		expect(ConvertToColumnName(1)).toEqual("A");
+	});
+	
+	it("2147483647はFXSHRXWである", function () {
+		expect(ConvertToColumnName(2147483647)).toEqual("FXSHRXW");
+	});
+    
+    it("例外を返さないか", function () {
+        expect(ConvertToColumnName).not.toThrow();
+    });
+    
+    it("繰上りされているか", function () {
+        expect(ConvertToColumnName(53)).toContain("B");
+    });
+});
+</script>
+</head>
+</html>
