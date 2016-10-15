@@ -26,13 +26,13 @@ describe("テスト: ConvertToColumnName", function () {
 		expect(ConvertToColumnName(2147483647)).toEqual("FXSHRXW");
 	});
     
-    it("例外を返さないか", function () {
-        expect(ConvertToColumnName).not.toThrow();
-    });
+	it("例外を返さないか", function () {
+        	expect(ConvertToColumnName).not.toThrow();
+    	});
     
-    it("繰上りされているか", function () {
-        expect(ConvertToColumnName(53)).toContain("B");
-    });
+    	it("繰上りされているか", function () {
+        	expect(ConvertToColumnName(53)).toContain("B");
+    	});
 });
 </script>
 </head>
