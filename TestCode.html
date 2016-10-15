@@ -13,6 +13,7 @@
 
   <!-- テスト対象のコード -->
   <script src="lib/jasmine-2.5.2/ConvertToColumnName.js"></script>
+  <script src="lib/jasmine-2.5.2/ConvertToColumnNumber.js"></script>
 
   <!-- テストコード -->
 <script>
@@ -22,17 +23,64 @@ describe("テスト: ConvertToColumnName", function () {
 		expect(ConvertToColumnName(1)).toEqual("A");
 	});
 	
+	it("26はZである", function () {
+        expect(ConvertToColumnName(26)).toEqual("Z");
+    });
+    
+    it("27はAAである", function () {
+        expect(ConvertToColumnName(27)).toEqual("AA");
+    });
+	
+	it("53はBAである", function () {
+        expect(ConvertToColumnName(53)).toEqual("BA");
+    });
+	
 	it("2147483647はFXSHRXWである", function () {
 		expect(ConvertToColumnName(2147483647)).toEqual("FXSHRXW");
 	});
+	
+	it("0のときは処理を終了", function () {
+		expect(ConvertToColumnName(0)).toEqual();
+	});
+	
+	it("2147483648のときは処理を終了", function () {
+		expect(ConvertToColumnName(2147483648)).toEqual();
+	});
+	
+	it("nullのときは処理を終了", function () {
+		expect(ConvertToColumnName(null)).toEqual();
+	});
+});
+
+describe("テスト: ConvertToColumnNumber", function () {
+         
+	it("Aは1である", function () {
+		expect(ConvertToColumnNumber("A")).toEqual(1);
+	});
+	
+	it("Zは26である", function () {
+        expect(ConvertToColumnNumber("Z")).toEqual(26);
+    });
     
-	it("例外を返さないか", function () {
-        	expect(ConvertToColumnName).not.toThrow();
-    	});
-    
-    	it("繰上りされているか", function () {
-        	expect(ConvertToColumnName(53)).toContain("B");
-    	});
+    it("AAは27である", function () {
+        expect(ConvertToColumnNumber("AA")).toEqual(27);
+    });
+	
+	it("BAは53である", function () {
+        expect(ConvertToColumnNumber("BA")).toEqual(53);
+    });
+	
+	it("FXSHRXWは2147483647である", function () {
+		expect(ConvertToColumnNumber("FXSHRXW")).toEqual(2147483647);
+	});
+	
+	it("FXSHRXXのときは処理を終了", function () {
+		expect(ConvertToColumnNumber("FXSHRXX")).toEqual();
+	});
+	
+	it("nullのときは処理を終了", function () {
+		expect(ConvertToColumnNumber(null)).toEqual();
+	});
 });
 </script>
 </head>
