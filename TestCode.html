@@ -24,16 +24,16 @@ describe("テスト: ConvertToColumnName", function () {
 	});
 	
 	it("26はZである", function () {
-        expect(ConvertToColumnName(26)).toEqual("Z");
-    });
+        	expect(ConvertToColumnName(26)).toEqual("Z");
+	});
     
-    it("27はAAである", function () {
-        expect(ConvertToColumnName(27)).toEqual("AA");
-    });
+    	it("27はAAである", function () {
+        	expect(ConvertToColumnName(27)).toEqual("AA");
+    	});
 	
 	it("53はBAである", function () {
-        expect(ConvertToColumnName(53)).toEqual("BA");
-    });
+        	expect(ConvertToColumnName(53)).toEqual("BA");
+    	});
 	
 	it("2147483647はFXSHRXWである", function () {
 		expect(ConvertToColumnName(2147483647)).toEqual("FXSHRXW");
@@ -59,16 +59,16 @@ describe("テスト: ConvertToColumnNumber", function () {
 	});
 	
 	it("Zは26である", function () {
-        expect(ConvertToColumnNumber("Z")).toEqual(26);
-    });
+        	expect(ConvertToColumnNumber("Z")).toEqual(26);
+    	});
     
-    it("AAは27である", function () {
-        expect(ConvertToColumnNumber("AA")).toEqual(27);
-    });
+    	it("AAは27である", function () {
+        	expect(ConvertToColumnNumber("AA")).toEqual(27);
+    	});
 	
 	it("BAは53である", function () {
-        expect(ConvertToColumnNumber("BA")).toEqual(53);
-    });
+        	expect(ConvertToColumnNumber("BA")).toEqual(53);
+    	});
 	
 	it("FXSHRXWは2147483647である", function () {
 		expect(ConvertToColumnNumber("FXSHRXW")).toEqual(2147483647);
